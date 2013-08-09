@@ -31,7 +31,7 @@
         "doctrine/dbal": ">=2.0"
     },
     "autoload": {
-        "psr-0": { "BeSimple\\I18nRoutingBundle": "" }
+        "psr-0": { "BeSimple\\I18nRoutingBundle\\": "" }
     },
     "target-dir": "BeSimple/I18nRoutingBundle"
 }

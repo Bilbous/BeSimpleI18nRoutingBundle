@@ -103,6 +103,10 @@ class Router implements RouterInterface
             }
         }
 
+        if (!empty($match['_locale']) && getenv('BESIMPLE_FORCE_LOCALE') !== false) {
+            $match['_locale'] = getenv('BESIMPLE_FORCE_LOCALE');
+        }
+
         return $match;
     }
 
