@@ -18,20 +18,24 @@ class TranslationTranslator implements AttributeTranslatorInterface
      */
     private $translator;
 
-    public function __construct(TranslatorInterface $translator)
+    /**
+     *
+     */
+    private $domain;
+
+    public function __construct(TranslatorInterface $translator, $domain)
     {
         $this->translator = $translator;
+        $this->domain = $domain;
     }
 
     public function reverseTranslate($route, $locale, $attribute, $originalValue)
     {
-        $domain = $route . "_" . $attribute;
-        return $this->translator->trans($originalValue, array(), $domain, $locale);
+        return $this->translator->trans($originalValue, array(), $this->domain, $locale);
     }
 
     public function translate($route, $locale, $attribute, $localizedValue)
     {
-        $domain = $route . "_" . $attribute;
-        return $this->translator->trans($localizedValue, array(), $domain, $locale);
+        return $this->translator->trans($localizedValue, array(), $this->domain, $locale);
     }
 }

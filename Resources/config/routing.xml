@@ -31,6 +31,7 @@
 
         <service id="be_simple_i18n_routing.translator.translation" class="%be_simple_i18n_routing.translator.translation.class%" public="false">
             <argument type="service" id="translator" />
+            <argument>%i18nRouting.translation_domain%</argument>
         </service>
     </services>
 </container>

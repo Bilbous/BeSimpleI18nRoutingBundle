@@ -29,6 +29,8 @@ class BeSimpleI18nRoutingExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
+        $container->setParameter('i18nRouting.translation_domain', $config['translation_domain']);
+
         if (isset($config['attribute_translator'])) {
             switch ($config['attribute_translator']['type']) {
                 case 'service':
@@ -55,6 +57,8 @@ class BeSimpleI18nRoutingExtension extends Extension
                 default:
                     throw new \InvalidArgumentException(sprintf('Unsupported attribute translator type "%s"', $config['attribute_translator']['type']));
             }
+        } else  {
+            $container->setAlias('be_simple_i18n_routing.translator', 'be_simple_i18n_routing.translator.translation');
         }
     }
 

@@ -53,6 +53,7 @@ class Configuration implements ConfigurationInterface
                         ->thenInvalid('The id has to be specified to use a service as attribute translator')
                     ->end()
                 ->end()
+                ->scalarNode('translation_domain')->isRequired()->end()
             ->end();
 
         return $treeBuilder;
